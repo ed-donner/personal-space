@@ -1,0 +1,6 @@
+{
+  "name": "personal-space",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24",
+  "runArgs": ["--env-file", "${localWorkspaceFolder}/.env"],
+  "postCreateCommand": "bash .devcontainer/setup.sh"
+}
