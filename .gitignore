@@ -2,3 +2,9 @@
 CLAUDE.md
 skills-lock.json
 .agents
+
+# Build artifacts and local data
+node_modules
+web/dist
+data/
+coverage/

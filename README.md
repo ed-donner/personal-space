@@ -3,6 +3,39 @@
 A personal knowledge manager inspired by Notion — pages, blocks, databases with table / board /
 list views — built autonomously by a team of OpenCode agents running on open-source models.
 
+## Running the app
+
+Prerequisites: Node 20 or newer.
+
+1. Install dependencies once:
+
+       npm install
+
+2. Build the web app and start the server in one command:
+
+       npm start
+
+3. Open <http://localhost:3000> in your browser. (Override the port with `PORT=4000 npm start`.)
+
+That single command builds the Vite web app and starts the Node/Express backend, which serves the
+API at `/api/*` and the built web app at everything else. The SQLite database lives at
+`data/personal-space.db` (gitignored) and is seeded with a starter workspace on first launch. The
+seed runs only when the database is empty, so your changes persist across restarts.
+
+For development with live reload, run `npm run dev` instead — it starts the backend with `tsx watch`
+and the Vite dev server together, with `/api` proxied to the backend.
+
+Run the unit test suites (backend and frontend, each enforcing >=80% statement coverage) with:
+
+       npm test
+
+Or each suite on its own:
+
+       npm run test:server
+       npm run test:web
+
+---
+
 - [REQUIREMENTS.md](./REQUIREMENTS.md) — what gets built, phase by phase, with success criteria.
 - [AGENTS.md](./AGENTS.md) — the build rules: team roles, defect workflow, file formats.
 - `.opencode/agents/` — the five agent definitions (orchestrator, two devs, qa, adversary).
