@@ -1,11 +1,51 @@
 # Personal Space
 
-A personal knowledge manager inspired by Notion — pages, blocks, databases with table / board /
-list views — built autonomously by a team of OpenCode agents running on open-source models.
+A personal knowledge manager you run on your own computer — a private, single-user take on
+Notion. Notes, plans and lists as free-form pages, plus databases you can view as tables,
+boards and lists. One user, no login, everything stays on your machine.
 
-- [REQUIREMENTS.md](./REQUIREMENTS.md) — what gets built, phase by phase, with success criteria.
+## Running the app
+
+Prerequisites: Node.js 20+ and npm. Nothing else — no accounts, no cloud, no internet needed.
+
+    npm start
+
+Then open **http://localhost:3002** in your browser. The first run installs dependencies,
+builds the frontend and starts the server with a fully seeded workspace (nested pages, three
+databases, realistic content). Your data lives in a local SQLite file at
+`server/data/personal-space.db` — delete it to start over with a fresh seed.
+
+### What's inside
+
+- **Pages** in an expandable sidebar tree — nest to any depth, emoji icons, create / rename /
+  delete (with confirmation, cascading to nested pages).
+- **A block editor** — click and type; everything autosaves. Eleven block types (paragraph,
+  headings 1–3, bulleted and numbered lists, to-dos, quote, divider, code, callout) via the
+  `/` menu; drag blocks to reorder.
+- **Databases** — rows with typed properties (text, number, select, multi-select, date,
+  checkbox, URL), viewed as a **table**, a **board** (drag cards between columns) or a
+  **list**, with per-view filters and sorts that persist. Every row opens as its own page.
+- **Quick-find** — Ctrl/Cmd+K or the sidebar Search button; jumps to any page, database or row.
+- **Light and dark mode** — the toggle in the top bar; your choice persists.
+
+### Development
+
+- `npm start` — one-command bootstrap (install, build, seed, serve).
+- `npm run dev:server` — backend dev mode with reload.
+- `npm -w server run test` / `npm -w web run test` — unit suites with coverage (both ≥ 80%
+  statements).
+- `cd e2e && npx playwright test` — end-to-end suite against the real app in Chromium.
+
+## Building this project
+
+- [REQUIREMENTS.md](./REQUIREMENTS.md) — what was built, phase by phase, with success criteria.
 - [AGENTS.md](./AGENTS.md) — the build rules: team roles, defect workflow, file formats.
-- `.opencode/agents/` — the five agent definitions (orchestrator, two devs, qa, adversary).
+- [DEFECTS.md](./DEFECTS.md) — the defect ledger. [ADVERSARIAL_REVIEW.md](./ADVERSARIAL_REVIEW.md) —
+  adversarial findings and their dispositions. `screenshots/` — visual evidence. `e2e/` — the
+  end-to-end suite.
+
+The product was built autonomously by a team of OpenCode agents (orchestrator, frontend-dev,
+backend-dev, qa, adversary) running on open-source models.
 
 ## Running the build
 

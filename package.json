@@ -1,0 +1,24 @@
+{
+  "name": "personal-space",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "dev:server": "npm -w server run dev",
+    "build:server": "npm -w server run build",
+    "test:server": "npm -w server run test",
+    "test:web": "npm -w web run test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true,
+    "esbuild@0.28.1": true,
+    "esbuild@0.21.5": true
+  }
+}
